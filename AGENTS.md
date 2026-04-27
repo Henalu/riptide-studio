@@ -11,7 +11,7 @@ Read these files before making substantial changes:
 
 - Main implementation: `index.html`
 - This is a static site. Do not introduce a framework, bundler, or package tooling unless the user explicitly asks for it.
-- The repo currently has no git history. Avoid assuming branches, tests, or CI exist.
+- Git is initialized. Avoid assuming remotes, branches beyond the current checkout, tests, or CI exist.
 
 ## Commands
 

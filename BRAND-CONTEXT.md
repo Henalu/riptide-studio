@@ -1,16 +1,17 @@
 # BRAND CONTEXT — Riptide Studio
 > Documento vivo. Actualizar cuando cambien proyectos, posicionamiento o decisiones de tono.
-> Última actualización: 2026-04-23
+> Última actualización: 2026-04-24
 
 ---
 
 ## Identidad
 
 **Nombre:** Riptide Studio  
-**Tipo:** Estudio web anónimo (sin cara visible, sin nombre personal)  
+**Tipo:** Estudio web con marca de estudio y voz personal (sin cara visible ni nombre personal como reclamo principal)  
 **Servicio principal:** Desarrollo web full-stack  
 **Diferenciador clave:** Velocidad + Calidad (AI-native workflow que entrega rápido sin bajar el nivel)  
-**Idiomas:** Bilingüe ES/EN — inglés como base de posicionamiento internacional
+**Idiomas:** Bilingüe ES/EN — inglés como base de posicionamiento internacional  
+**Contacto:** hello@riptide.studio
 
 ---
 
@@ -29,6 +30,16 @@
 - Una agencia con 12 revisiones y 4 meses de espera
 - Una empresa de "landing pages"
 - Un estudio que hace presentaciones bonitas pero nunca envía código
+
+### Arquitectura actual del portfolio
+
+El portfolio ya no es solo una lista de proyectos. La página cuenta tres capas:
+
+1. **Prueba:** hero, proof strip y Selected Work.
+2. **Criterio:** Inside my mind y My internet lab, mostrando qué tipos de problemas atraen al estudio.
+3. **Carácter:** Things I would build if I had 10 lives, How we ship y contacto.
+
+Esta mezcla permite enseñar capacidad real sin inventar métricas, logos o claims. Mantenerla concreta: si una sección empieza a sonar a manifiesto largo, recortar.
 
 ---
 
@@ -75,6 +86,8 @@ Accent glow:  rgba(13,245,208,0.15)
 
 ### Metáfora visual
 El **mar nocturno y profundo**: oscuridad real, no "dark mode gris". Bioluminiscencia como acento — ese teal que aparece en aguas profundas. Objetos que flotan lentamente (como el debris en el océano, o las medusas). No hay olas espumosas ni playas soleadas — esto es el fondo del mar donde se trabaja en serio.
+
+La versión actual usa assets bitmap locales para el hero y paneles flotantes de proyectos. Los paneles del hero funcionan como **concept covers tratados**: imágenes ficticias y abstractas que representan el concepto del proyecto sin fingir ser capturas reales. Mantener esa dirección: imágenes con presencia, oscuridad profunda, acentos precisos, lenguaje oceánico común y nada de fondos genéricos de IA. Los `*-riptide.png` son las versiones actualmente usadas en el hero; los `*-concept.png` quedan como fuente/base.
 
 ### Proyectos — Identidad visual de cada uno
 | Proyecto | Color | Metáfora |
@@ -178,9 +191,8 @@ Tecnologías que Riptide usa y puede mostrar con confianza:
 
 ## Preguntas Abiertas
 
-- [ ] Email de contacto real para el portfolio (¿hello@riptide.studio?)
 - [ ] ¿Hay URLs live para los proyectos? (para añadir al portfolio)
-- [ ] ¿Screenshots reales de los proyectos? (para reemplazar los placeholders visuales)
+- [ ] ¿Los screenshots actuales de `assets/project-covers/` siguen representando la versión pública más reciente?
 - [ ] ¿Hay URLs live o capturas públicas para SN Assistant?
 - [ ] ¿Cómo se presenta Alvear IA en el portfolio sin sobreprometer una v1 todavía en desarrollo?
 - [ ] ¿Disponibilidad para proyectos? (¿se anuncia en el portfolio?)
@@ -189,4 +201,4 @@ Tecnologías que Riptide usa y puede mostrar con confianza:
 ---
 
 *Documento mantenido por: Claude (Cowork mode)*  
-*Próxima revisión cuando: se añadan proyectos, cambien URLs, o se defina email de contacto*
+*Próxima revisión cuando: se añadan proyectos, cambien URLs, o cambie el enfoque del portfolio*

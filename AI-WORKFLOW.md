@@ -1,6 +1,7 @@
 # AI Workflow Playbook
 
 Last researched: 2026-04-23
+Repo context last refreshed: 2026-04-24
 
 This file translates current official OpenAI and Anthropic guidance into a practical workflow for this repo.
 
@@ -15,7 +16,7 @@ This file translates current official OpenAI and Anthropic guidance into a pract
 4. Write prompts like short GitHub issues.
    - Include file paths, examples, constraints, and references to existing patterns.
 5. Keep persistent context in repo files.
-   - `AGENTS.md`, `CLAUDE.md`, `.impeccable.md`, and `PROJECT-CONTEXT.md` are the shared memory layer.
+   - `AGENTS.md`, `CLAUDE.md`, `.impeccable.md`, `PROJECT-CONTEXT.md`, `TECHNICAL-OVERVIEW.md`, and `MANUAL-EDITING-GUIDE.md` are the shared memory layer.
 6. Verify after edits.
    - In this repo that means at least running `scripts/verify.ps1` and previewing the site locally.
 7. Update the context files when the project changes.
@@ -80,7 +81,9 @@ Summarize the current project goals, constraints, and open questions before codi
 - If you touch copy, check both the visible default text and the translation objects.
 - If you touch motion, make sure the experience still works with reduced motion or missing GSAP.
 - If you introduce a new reusable pattern, document it in the shared context files.
-- If the repo becomes more complex, initialize git before major experiments.
+- If you change how the site is assembled, update `TECHNICAL-OVERVIEW.md`.
+- If you change where or how a human should edit the site manually, update `MANUAL-EDITING-GUIDE.md`.
+- Git is initialized. Check `git status --short` before editing and do not overwrite unrelated local changes.
 
 ## Why this setup exists
 
