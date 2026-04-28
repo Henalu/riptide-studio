@@ -7,6 +7,12 @@ Read these files before making substantial changes:
 3. `.impeccable.md`
 4. `AI-WORKFLOW.md`
 
+## Shared Workspace Context
+
+- Workspace guidance: `../../_workspace/AGENTS.md`
+- For UI, visual design, layout, component, token, or frontend polish tasks, consult `../../_systems/0.design-system/CLAUDE.md` and `../../_systems/0.design-system/docs/playbook.md` before creating new patterns.
+- Prefer reusing or adapting shared design-system references when they fit this project.
+
 ## Repo facts
 
 - Main implementation: `index.html`

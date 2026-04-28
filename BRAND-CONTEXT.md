@@ -11,7 +11,7 @@
 **Servicio principal:** Desarrollo web full-stack  
 **Diferenciador clave:** Velocidad + Calidad (AI-native workflow que entrega rápido sin bajar el nivel)  
 **Idiomas:** Bilingüe ES/EN — inglés como base de posicionamiento internacional  
-**Contacto:** hello@riptide.studio
+**Contacto:** marcohenalu@gmail.com
 
 ---
 

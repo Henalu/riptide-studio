@@ -316,7 +316,7 @@ El email aparece en la seccion `#contact` y tambien lo comprueba `verify.ps1`.
 Si cambia el email, busca todas las apariciones:
 
 ```powershell
-rg -n "hello@riptide.studio|mailto:" index.html PROJECT-CONTEXT.md BRAND-CONTEXT.md scripts
+rg -n "marcohenalu@gmail.com|mailto:" index.html PROJECT-CONTEXT.md BRAND-CONTEXT.md scripts
 ```
 
 Actualiza tambien el verify script si deja de buscar el email antiguo.

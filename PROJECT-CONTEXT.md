@@ -37,7 +37,7 @@ Convert startup founders and operators into email conversations by showing:
 - Selected Work: WavePass, Gijón Throwdown, ShiftSwap, Breaking Trail, SN Assistant, and Alvear IA
 - Concept sections: Inside my mind, My internet lab, and Things I would build if I had 10 lives
 - How we ship philosophy section
-- Contact section using `hello@riptide.studio`
+- Contact section using `marcohenalu@gmail.com`
 
 ## Current implementation notes
 

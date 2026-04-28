@@ -21,7 +21,7 @@ $requiredMarkers = @(
     'id="contact"',
     '<main>',
     '</main>',
-    'mailto:hello@riptide.studio'
+    'mailto:marcohenalu@gmail.com'
 )
 
 foreach ($marker in $requiredMarkers) {

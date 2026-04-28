@@ -11,6 +11,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Riptide Studio ocean hero loop",
+      "description": "A short, decorative ocean shoreline loop used as the Riptide Studio hero background.",
+      "thumbnailUrl": "assets/hero/hero-ocean-poster.webp",
+      "contentUrl": "assets/hero/hero-ocean-loop.mp4",
+      "uploadDate": "2019-11-07T00:00:00+00:00",
+      "duration": "PT0M6S",
+      "encodingFormat": "video/mp4"
+    }
+  </script>
 
   <style>
     /* ─────────────────────────────────────────
@@ -336,7 +349,7 @@
       --hero-scroll: 0;
       position: relative;
       min-height: 100vh;
-      padding: calc(var(--nav-h) + 40px) 40px 40px;
+      padding: 0;
       overflow: hidden;
     }
 
@@ -365,11 +378,16 @@
 
     .hero-shell {
       position: relative;
-      z-index: 3;
-      width: min(1380px, 100%);
-      min-height: calc(100vh - var(--nav-h) - 48px);
+      z-index: 5;
+      min-height: 100vh;
       margin: 0 auto;
       display: grid;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      width: min(1380px, 100%);
+      padding: calc(var(--nav-h) + 40px) 40px 40px;
     }
 
     .hero-copy {
@@ -483,11 +501,12 @@
     .btn:focus-visible { outline-offset: 6px; }
 
     .hero-stage {
-      position: relative;
+      position: absolute;
+      inset: 0;
       z-index: 1;
-      grid-column: 1;
-      grid-row: 1;
-      min-height: calc(100vh - var(--nav-h) - 48px);
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
       isolation: isolate;
       overflow: hidden;
       perspective: 2200px;
@@ -515,22 +534,40 @@
 
     .hero-backdrop {
       position: absolute;
-      inset: -3% -2% 0 -2%;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
       pointer-events: none;
+      background: #04070b url('assets/hero/hero-ocean-poster.webp') center bottom / cover no-repeat;
     }
-    .hero-backdrop picture,
-    .hero-backdrop img {
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
       height: 100%;
-    }
-    .hero-backdrop img {
       object-fit: cover;
       object-position: center bottom;
-      filter: saturate(.86) contrast(1.04) brightness(.78);
+      filter: saturate(.82) contrast(1.06) brightness(.76);
       transform: translate3d(calc(var(--hero-shift-x) * .14), calc((var(--hero-shift-y) * .08) + (var(--hero-scroll) * 14px)), 0) scale(1.025);
       will-change: transform;
+    }
+    .hero-poster {
+      z-index: 0;
+    }
+    .hero-video {
+      z-index: 1;
+      opacity: 0;
+      transition: opacity .8s var(--ease-smooth);
+    }
+    .hero-video.is-loaded {
+      opacity: .82;
+    }
+    .hero-video.is-failed,
+    .reduced-motion .hero-video {
+      display: none;
     }
 
     .hero-stage-veil {
@@ -539,10 +576,10 @@
       z-index: 2;
       pointer-events: none;
       background:
-        radial-gradient(circle at 71% 32%, rgba(232,239,245,.15) 0%, rgba(232,239,245,0) 24%),
-        radial-gradient(circle at 61% 46%, rgba(146,170,192,.1) 0%, transparent 26%),
-        linear-gradient(90deg, rgba(4,7,11,.82) 0%, rgba(4,7,11,.26) 28%, rgba(4,7,11,0) 44%, rgba(4,7,11,.36) 100%),
-        linear-gradient(180deg, rgba(4,7,11,.08) 0%, rgba(4,7,11,.18) 34%, rgba(4,7,11,.68) 100%);
+        radial-gradient(circle at 71% 32%, rgba(232,239,245,.12) 0%, rgba(232,239,245,0) 24%),
+        radial-gradient(circle at 61% 46%, rgba(13,245,208,.08) 0%, transparent 28%),
+        linear-gradient(90deg, rgba(4,7,11,.88) 0%, rgba(4,7,11,.52) 27%, rgba(4,7,11,.1) 50%, rgba(4,7,11,.58) 100%),
+        linear-gradient(180deg, rgba(4,7,11,.14) 0%, rgba(4,7,11,.22) 42%, rgba(4,7,11,.88) 100%);
     }
 
     .hero-panel-cluster {
@@ -1933,7 +1970,7 @@
     ───────────────────────────────────────── */
     @media (max-width: 1180px) {
       .hero-shell {
-        min-height: calc(100vh - var(--nav-h) - 36px);
+        min-height: 100vh;
       }
       .hero-copy {
         max-width: 540px;
@@ -1941,7 +1978,7 @@
         padding-bottom: 112px;
       }
       .hero-stage {
-        min-height: calc(100vh - var(--nav-h) - 36px);
+        min-height: 100vh;
       }
       .hero-h1 { font-size: clamp(76px, 8.8vw, 118px); }
       .hero-panel-wavepass { --panel-left: 46%; }
@@ -2002,12 +2039,16 @@
         grid-template-columns: 38px 1fr;
         min-height: 58px;
       }
-      .hero { padding: calc(var(--nav-h) + 12px) 12px 28px; min-height: 100svh; }
+      .hero { min-height: 100svh; }
       .hero-shell {
-        min-height: calc(100svh - var(--nav-h) - 40px);
-        overflow: hidden;
-        border: 1px solid rgba(255,255,255,.035);
-        background: rgba(4,7,11,.18);
+        min-height: 100svh;
+        overflow: visible;
+        border: 0;
+        background: transparent;
+      }
+      .hero-content {
+        width: 100%;
+        padding: calc(var(--nav-h) + 12px) 12px 28px;
       }
       .hero-copy {
         grid-row: 1;
@@ -2045,8 +2086,9 @@
       .hero-stage {
         position: absolute;
         inset: 0;
-        grid-row: 1;
-        min-height: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100svh;
         margin: 0;
         pointer-events: auto;
       }
@@ -2055,17 +2097,17 @@
         opacity: .78;
       }
       .hero-backdrop {
-        inset: -4% -18% -2% -18%;
+        inset: 0;
       }
-      .hero-backdrop img {
+      .hero-bg {
         object-position: 58% 52%;
-        filter: saturate(.82) contrast(1.05) brightness(.61);
+        filter: saturate(.8) contrast(1.05) brightness(.6);
       }
       .hero-stage-veil {
         background:
           radial-gradient(circle at 75% 38%, rgba(232,239,245,.12) 0%, rgba(232,239,245,0) 26%),
-          linear-gradient(90deg, rgba(4,7,11,.92) 0%, rgba(4,7,11,.72) 42%, rgba(4,7,11,.24) 74%, rgba(4,7,11,.66) 100%),
-          linear-gradient(180deg, rgba(4,7,11,.04) 0%, rgba(4,7,11,.22) 45%, rgba(4,7,11,.86) 100%);
+          linear-gradient(90deg, rgba(4,7,11,.94) 0%, rgba(4,7,11,.76) 42%, rgba(4,7,11,.28) 74%, rgba(4,7,11,.7) 100%),
+          linear-gradient(180deg, rgba(4,7,11,.08) 0%, rgba(4,7,11,.28) 45%, rgba(4,7,11,.92) 100%);
       }
       .hero-stage::after {
         background:
@@ -2480,16 +2522,24 @@
        HERO
   ════════════════════════════════════════ -->
   <section class="hero" id="top">
-    <div class="hero-shell">
-
-      <div class="hero-stage" id="hero-stage">
+    <div class="hero-stage" id="hero-stage">
         <div class="hero-backdrop" aria-hidden="true">
-          <picture>
-            <source media="(max-width: 900px)" srcset="assets/hero/hero-scene-mobile.png" />
-            <img src="assets/hero/hero-scene-desktop.png" alt="" fetchpriority="high" loading="eager" decoding="async" />
-          </picture>
+          <img class="hero-bg hero-poster" src="assets/hero/hero-ocean-poster.webp" width="1280" height="720" alt="" fetchpriority="high" loading="eager" decoding="async" />
+          <video
+            class="hero-bg hero-video"
+            data-hero-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="none"
+            poster="assets/hero/hero-ocean-poster.webp"
+            data-src-webm="assets/hero/hero-ocean-loop.webm"
+            data-src-mp4="assets/hero/hero-ocean-loop.mp4"
+            aria-hidden="true"
+          ></video>
         </div>
-        <div class="hero-stage-veil" aria-hidden="true"></div>
+        <div class="hero-stage-veil hero-overlay" aria-hidden="true"></div>
         <div class="hero-panel-cluster">
           <button class="hero-panel hero-panel-wavepass" type="button" data-target="project-wavepass" aria-label="View WavePass project">
             <span class="drift-ping" aria-hidden="true"></span>
@@ -2520,8 +2570,9 @@
             </span>
           </button>
         </div>
-      </div>
+    </div>
 
+    <div class="hero-shell hero-content">
     <div class="hero-inner hero-copy">
       <div class="hero-eyebrow" data-t="hero_eyebrow">Full-stack web studio</div>
       <h1 class="hero-h1">
@@ -3343,8 +3394,8 @@
     <p class="contact-sub" data-t="contact_sub">
       Send the scope, the blocker, and the deadline. A rough brief is enough if the problem is real.
     </p>
-    <a href="mailto:hello@riptide.studio" class="contact-email">
-      hello@riptide.studio →
+    <a href="mailto:marcohenalu@gmail.com" class="contact-email">
+      marcohenalu@gmail.com →
     </a>
     <p class="contact-mini" data-t="contact_mini">Short brief, rough spec, or voice-note dump. We'll sort the shape fast.</p>
   </section>
@@ -3685,10 +3736,13 @@
   const menuLinks = Array.from(document.querySelectorAll('.nav-menu-link'));
   const hero = document.querySelector('.hero');
   const heroStage = document.getElementById('hero-stage');
+  const heroVideo = document.querySelector('[data-hero-video]');
   const projectPanels = Array.from(document.querySelectorAll('.hero-panel'));
   const magneticTargets = Array.from(document.querySelectorAll('.hero-panel, .hero-actions .btn'));
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mobileDisclosureQuery = window.matchMedia('(max-width: 900px)');
+  let heroVideoObserver = null;
+  let heroVideoInitialized = false;
   let currentLang = 'en';
   const heroCrackScrollDelay = 700;
   const heroCrackCleanupDelay = 900;
@@ -3836,6 +3890,81 @@
     hero.style.setProperty('--hero-shift-y', '0px');
   }
 
+  function appendHeroVideoSource(src, type) {
+    if (!heroVideo || !src) return;
+
+    const source = document.createElement('source');
+    source.src = src;
+    source.type = type;
+    heroVideo.appendChild(source);
+  }
+
+  function loadHeroVideo() {
+    if (!heroVideo || reducedMotionQuery.matches || heroVideo.dataset.loaded === 'true') return;
+
+    appendHeroVideoSource(heroVideo.dataset.srcWebm, 'video/webm');
+    appendHeroVideoSource(heroVideo.dataset.srcMp4, 'video/mp4');
+    heroVideo.dataset.loaded = 'true';
+    heroVideo.load();
+    heroVideo.play().catch(() => {});
+  }
+
+  function observeHeroVideo() {
+    if (!heroVideo || heroVideoObserver || heroVideo.dataset.loaded === 'true') return;
+
+    if ('IntersectionObserver' in window && hero) {
+      heroVideoObserver = new IntersectionObserver((entries, observer) => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          loadHeroVideo();
+          observer.disconnect();
+          heroVideoObserver = null;
+        }
+      }, { rootMargin: '160px 0px', threshold: 0.01 });
+
+      heroVideoObserver.observe(hero);
+      return;
+    }
+
+    loadHeroVideo();
+  }
+
+  function initHeroVideo() {
+    if (!heroVideo || heroVideoInitialized) return;
+
+    heroVideoInitialized = true;
+    heroVideo.addEventListener('loadeddata', () => {
+      heroVideo.classList.add('is-loaded');
+    });
+    heroVideo.addEventListener('error', () => {
+      heroVideo.classList.add('is-failed');
+      heroVideo.classList.remove('is-loaded');
+    }, true);
+
+    observeHeroVideo();
+  }
+
+  function syncHeroVideoMotionState() {
+    if (!heroVideo) return;
+
+    if (reducedMotionQuery.matches) {
+      if (heroVideoObserver) {
+        heroVideoObserver.disconnect();
+        heroVideoObserver = null;
+      }
+      heroVideo.pause();
+      heroVideo.classList.remove('is-loaded');
+      return;
+    }
+
+    if (!heroVideoInitialized) {
+      initHeroVideo();
+    } else if (heroVideo.dataset.loaded === 'true') {
+      heroVideo.play().catch(() => {});
+    } else {
+      observeHeroVideo();
+    }
+  }
+
 
   // ── Nav on scroll ─────────────────────────────────────────────
   function resetMagnetic(el) {
@@ -3856,6 +3985,8 @@
       resetHeroShift();
       magneticTargets.forEach(resetMagnetic);
     }
+
+    syncHeroVideoMotionState();
   }
 
   function onScroll() {
@@ -4068,7 +4199,7 @@
 
     const heroIntro = gsap.timeline({ defaults: { ease: 'power3.out' } });
     heroIntro
-      .from('.hero-backdrop img', { opacity: 0, scale: 1.05, duration: 1.4 }, 0)
+      .from('.hero-poster', { opacity: 0, scale: 1.05, duration: 1.4 }, 0)
       .from('.hero-stage-veil', { opacity: 0, duration: 1.1 }, 0.08)
       .from('.hero-panel', { opacity: 0, y: 46, scale: 0.96, rotateY: 3, duration: 0.96, stagger: 0.08 }, 0.18)
       .from('.hero-eyebrow', { opacity: 0, y: 18, duration: 0.68 }, 0.16)
@@ -4088,7 +4219,7 @@
       }
     });
 
-    gsap.to('.hero-backdrop img', {
+    gsap.to('.hero-poster, .hero-video', {
       yPercent: 5,
       ease: 'none',
       scrollTrigger: {
