@@ -46,3 +46,17 @@ Published to the original project, now named debarroslabs. HTTPS 200, three perm
 - Limitation: available browser controls do not expose mouse hover or OS media emulation. Hover was driven by a synthetic PointerEvent in a local-only harness; reduced-motion input was supplied to matchMedia there, while the production CSS fallback was reviewed directly. No claim of a manual OS-setting test or measured frame rate.
 - Shared design preference recorded in ../docs/brand/system.md, already loaded by the debarros-design skill. Other pre-existing parent repository changes remain untouched.
 - Publication approved by Henalu on 2026-09-15. Test harness and diagnostics live outside public/ and are not deployed.
+## Headline reconstruction refinement — local candidate, 2026-09-15
+
+Replaced the circular CSS mask and separately fading particles with exact high-resolution ink tiles. While interacting, the tiles render the headline itself; each carries displacement and velocity, driven by a damped spring toward its own home position. Pointer exit removes the repulsion, allowing the same tiles to reassemble before restoring native text. No circular erasure or particle-opacity fade. Selection, scrolling, blur and reduced motion restore native text immediately.
+
+Browser harness under the production CSP: dispersion settles (38 frames in the observed run), pointer exit leaves reconstruction active, then settles and restores native text (37 further frames). No warnings/errors. Synthetic pointer test limitation remains as documented above. Static verification passed. This revision is not published.
+
+## Navigation fragment refinement (local candidate)
+
+- Menu labels and both hero links use real rasterized ink tiles, including nested arrows. Menu fragments scatter; hero fragments fall, then return within 950 ms.
+- Browser harness under production CSP: menu and keyboard-activated hero link remained at the original hash at 100/400 ms, reached #projects at 650 ms, restored text by 1100 ms. No browser warnings/errors.
+- Reduced-motion JavaScript branch: #progress already reached at 100 ms, text never hidden. Harness overrides matchMedia; this is not OS-level motion emulation.
+- Visual browser capture confirms descending ink fragments. Syntax and static-release verification passed (18 public files). No layout/content/metrics changes. Not published yet.
+
+Product-link extension: browser screenshots captured the OpenTests outward burst and StepBudget Project numbers downward fragments. Confirmed navigation to https://opentests.vercel.app/ and #metrics-stepbudget, restored link text, and no browser warnings/errors. Syntax/static checks passed. Local candidate only.
