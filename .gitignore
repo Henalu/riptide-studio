@@ -1,3 +1,7 @@
 .claude/
 artifacts/
 temp/
+.vercel/
+node_modules/
+.env*
+*.log
