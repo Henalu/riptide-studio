@@ -14,3 +14,7 @@ English in first person; contact retained from the existing public site: marcohe
 ## Distinction from product interfaces
 
 The lab website is an editorial index and public notebook. Share brand fonts, ink/paper colors and the five-part signature with products, but do not reuse StepBudget’s split hero, yellow upload panel, underlined headline, hard shadows or poster illustrations. Each product needs a composition suited to its own job.
+
+## Discoverable interaction
+
+Henalu prefers small, elegant, playful details that reward exploration. See the shared docs/brand/system.md section “Detalles interactivos y descubrimiento”. This site uses local headline pixel repulsion, a short navigation pixel burst, and a product-row hover/focus highlight. Native navigation and readable content remain available; reduced motion disables particles. No background loops, external libraries, or effects on metrics.

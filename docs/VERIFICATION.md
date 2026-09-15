@@ -36,3 +36,13 @@ Following design review, replaced the StepBudget-like split hero/poster and prod
 ## Approved production verification — 2026-09-15
 
 Published to the original project, now named debarroslabs. HTTPS 200, three permanent redirects, exact byte comparison of all 17 public files, private-path isolation, the OpenTests link, live mobile/desktop rendering and keyboard disclosure verified. See MIGRATION.md for commit and deployment evidence.
+
+## Interactive details — approved for publication, 2026-09-15
+
+- Added native Canvas headline fragments, a bounded 18-pixel menu burst (maximum 72 concurrent particles), and CSS row hover/focus feedback. No dependencies, timers or continuous animation loop in production; requestAnimationFrame sleeps once positions settle.
+- A separate ignored local harness drove synthetic pointer enter/leave and menu activation in Chromium. Headline emitted pixels, restored its unmasked text on leave, and settled without further animation frames. Menu reached #projects and settled after its burst. Reduced-motion JavaScript branch produced zero painted particles and still navigated.
+- Repeated headline probe under the production CSP: no warnings/errors. Actual local-page keyboard navigation and product focus highlight verified, with pointer-events:none and aria-hidden on the canvas.
+- Visual inspection: headline effect on desktop and ordinary layout at 375px through the isolated harness, no horizontal overflow. Canvas is resized and effects reset when layout changes.
+- Limitation: available browser controls do not expose mouse hover or OS media emulation. Hover was driven by a synthetic PointerEvent in a local-only harness; reduced-motion input was supplied to matchMedia there, while the production CSS fallback was reviewed directly. No claim of a manual OS-setting test or measured frame rate.
+- Shared design preference recorded in ../docs/brand/system.md, already loaded by the debarros-design skill. Other pre-existing parent repository changes remain untouched.
+- Publication approved by Henalu on 2026-09-15. Test harness and diagnostics live outside public/ and are not deployed.
