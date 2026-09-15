@@ -25,10 +25,14 @@ Local screenshots, ignored by Git and excluded from deployment:
 
 Browser zoom controls and reduced-motion preference emulation were unavailable in the in-app browser API. 720px reflow and the reduced-motion CSS were checked; this is not a claim of a tested 200% browser zoom, preference toggle or a full screen-reader/WCAG audit.
 
-No remote publication, payment, generation, analytics integration, Vercel rename or DNS change was performed. Actual HTTPS/redirect behaviour on the new canonical remains a post-approval check. See MIGRATION.md.
+At the pre-publication review, remote release and domain changes were still pending. These were subsequently approved and verified; see the release result in MIGRATION.md. No payment, generation or analytics integration was added.
 
 Current numeric product use, purchases and revenue remain unknown; StepBudget financial metrics are not applicable to its no-paid-offer version. Catalogue counts (two documented products, one published) are verified catalogue facts, not market traction.
 
 ## Editorial revision — 15 September 2026
 
 Following design review, replaced the StepBudget-like split hero/poster and product illustrations with a wide typographic masthead and numbered editorial index. Updated social artwork and design context. Browser checks at 320, 375 and 1440 CSS pixels: no horizontal overflow; inspected mobile ledger and product index, desktop hero and index. No broken fragment links or browser warning/error logs. Static release and ledger validation passed. Production remains untouched.
+
+## Approved production verification — 2026-09-15
+
+Published to the original project, now named debarroslabs. HTTPS 200, three permanent redirects, exact byte comparison of all 17 public files, private-path isolation, the OpenTests link, live mobile/desktop rendering and keyboard disclosure verified. See MIGRATION.md for commit and deployment evidence.

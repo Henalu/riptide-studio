@@ -1,6 +1,6 @@
 # Migration and release checklist
 
-## Verified 2026-09-15
+## Initial inspection — 2026-09-15 (before publication)
 
 - Local source relocated from `C:/Dev/projects/Riptide Studio` to `C:/Dev/deBarrosLabs/website`. Git history and origin preserved; branch `codex/debarroslabs-public-site`. No duplicate repository or Vercel project was created.
 - Parent lab repository ignores `/website/`. It stays outside `apps/*` and `packages/*`, so pnpm and Turbo do not treat the static site as another Next app. No shared package or dependency version was changed.
@@ -19,7 +19,7 @@
 
 The site is static, with no compilation. `scripts/verify.ps1` validates syntax, assets, navigation, metadata, output isolation and ledger behaviour. Preview uses the same configured security headers. Local Vercel Toolbar may be blocked by the deliberately restricted script/connect policy; the public site itself needs no toolbar or remote connection.
 
-## Execute only after Henalu reviews the local candidate
+## Cutover procedure (approved and completed 2026-09-15)
 
 1. Recheck public product state and domain availability; review the exact site diff. Do not publish the parent repository's unrelated working changes. Use this existing repo's branch and project ID.
 2. Rename **the existing project** to `debarroslabs` in General settings. Verify the same project ID, Git repo/production branch, environment settings and retained domains. If assignment reports a collision or unexpected consequence, stop and explain before making a replacement.
@@ -30,6 +30,21 @@ The site is static, with no compilation. `scripts/verify.ps1` validates syntax, 
 7. Check apex and redirects without a Vercel session, product links, mobile, static assets, robots/sitemap and social card. Confirm internal paths (AGENTS.md, CV, old assets, .git) return 404.
 8. Record the deployed commit/deployment ID, final domains, redirect evidence and release date here. If any live check fails, use the prior deployment and retained domain settings to restore access; do not delete the project.
 
-**Current state: local candidate only. Renaming, domain connection, certificate issuance, redirect behaviour and remote release remain pending public review.**
+## Release result — 2026-09-15
+
+User explicitly approved publishing the reviewed editorial version and renaming the existing project.
+
+- Canonical: https://debarroslabs.com/ — HTTPS 200; Vercel reports Valid Configuration.
+- Existing project renamed to debarroslabs. Project ID unchanged: prj_r237gRLOhKpfMgnRK2w9BvMcsrZm. No duplicate project; previous deployments retained.
+- Git integration remains Henalu/riptide-studio, main. Approved site commit: 6eda40eb1156deb0058b346906c3d7558107cc94.
+- Initial release deployment: dpl_CSztQL6XwMQo967JTTmsCJeHJRof (READY / production). Vercel build completed successfully in 37 ms with no dependency install.
+- riptide-studio.vercel.app, debarroslabs.vercel.app and www.debarroslabs.com all return 308 to https://debarroslabs.com/. Verified /privacy.html?source=release preserves both path and query and ends at HTTP 200.
+- Browser confirmed the old /#projects URL arrives at https://debarroslabs.com/#projects.
+- All 17 public files exactly match the reviewed local bytes. Five tested internal paths return 404: /AGENTS.md, /.git/config, /docs/MIGRATION.md, /assets/social-card.svg and /.env.
+- Live browser checked at 375 and 1440 CSS pixels: no overflow, fonts loaded, no broken anchors, no warnings/errors. Metric definition disclosure opens with Enter. OpenTests product link responds 200.
+- No metrics integration added. Manual reports retain explicit periods, verification dates and unknown values; no fabricated zeros. No change to other products or their deployments.
+- Detailed machine-check evidence is local at artifacts/production-checks.json. Screenshot: artifacts/production-desktop.png.
+
+Future documentation-only deployments may supersede the initial deployment; the site content remains traceable to the approved commit above.
 
 References consulted: [Vercel project renaming](https://vercel.com/kb/guide/how-do-i-change-the-name-of-my-vercel-project), [project-name workflow continuity](https://vercel.com/changelog/projects-can-now-be-renamed), [generated URLs](https://vercel.com/docs/deployments/generated-urls), [domain configuration](https://vercel.com/docs/domains/working-with-domains/add-a-domain), [static configuration](https://vercel.com/docs/project-configuration/vercel-json).

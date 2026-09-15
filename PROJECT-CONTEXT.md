@@ -10,4 +10,4 @@ Old Riptide projects are removed only from the catalogue. Their repositories and
 
 Implementation: public/index.html, styles.css, lab-data.js and lab.js, local fonts/icons, site information, robots/sitemap. Only public/ is deployed. Node built-ins check/serve the site; there are no install dependencies or compilation. Shared React UI is a design reference, not an import.
 
-Release: local candidate, not published. Intended canonical https://debarroslabs.com/, owned in the Vercel team, not yet connected. Retain project prj_r237gRLOhKpfMgnRK2w9BvMcsrZm. See docs/MIGRATION.md.
+Release: published on 2026-09-15 at https://debarroslabs.com/. Existing Vercel project renamed to debarroslabs; identity prj_r237gRLOhKpfMgnRK2w9BvMcsrZm and Git integration retained. The old riptide-studio.vercel.app URL, debarroslabs.vercel.app and www.debarroslabs.com redirect with 308 to the canonical. See docs/MIGRATION.md.
